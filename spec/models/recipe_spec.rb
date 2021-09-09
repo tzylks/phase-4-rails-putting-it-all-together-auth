@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Recipe, type: :model do
   it "can be created with valid data" do
-    user = User.create(username: "test_user", password: "sup3r-secret", image_url: "https://via.placeholder.com/150", bio: "bio")
+    user = User.create(username: "test_user", password: "sup3r-secret", img_url: "https://via.placeholder.com/150", bio: "bio")
     recipe = Recipe.new(
       user_id: user.id,
       title: "Rice", 

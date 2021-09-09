@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Sessions", type: :request do
-  let!(:user) { User.create(username: "test_user", password: "sup3r-secret", image_url: "https://via.placeholder.com/150", bio: "bio") }
+  let!(:user) { User.create(username: "test_user", password: "sup3r-secret", img_url: "https://via.placeholder.com/150", bio: "bio") }
 
   describe "POST /login" do
     context "with valid username and password" do
@@ -11,7 +11,7 @@ RSpec.describe "Sessions", type: :request do
         expect(response.body).to include_json({
           id: user.id,
           username: user.username,
-          image_url: user.image_url,
+          img_url: user.img_url,
           bio: user.bio
         })
       end

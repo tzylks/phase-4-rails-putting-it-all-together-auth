@@ -9,7 +9,7 @@ RSpec.describe "Users", type: :request do
           username: "test_user", 
           password: "sup3r-secret", 
           password_confirmation: "sup3r-secret", 
-          image_url: "https://via.placeholder.com/150", 
+          img_url: "https://via.placeholder.com/150", 
           bio: "bio" 
         } 
       end
@@ -36,7 +36,7 @@ RSpec.describe "Users", type: :request do
         expect(response.body).to include_json({
           id: User.last.id,
           username: User.last.username,
-          image_url: User.last.image_url,
+          img_url: User.last.img_url,
           bio: User.last.bio
         })
       end
@@ -55,7 +55,7 @@ RSpec.describe "Users", type: :request do
           username: "test_user",
           password: "sup3r-secret",
           password_confirmation: "wrong",
-          image_url: "https://via.placeholder.com/150", 
+          img_url: "https://via.placeholder.com/150", 
           bio: "bio"
         } 
       end
@@ -84,7 +84,7 @@ RSpec.describe "Users", type: :request do
       let!(:user_params) do 
         { 
           password: "sup3r-secret",
-          image_url: "https://via.placeholder.com/150", 
+          img_url: "https://via.placeholder.com/150", 
           bio: "bio"
         } 
       end
@@ -110,8 +110,8 @@ RSpec.describe "Users", type: :request do
   end
 
   describe "GET /me" do
-    let!(:user1) { User.create(username: "test_user_2", password: "sup3r-secret", image_url: "https://via.placeholder.com/150", bio: "bio") }
-    let!(:user2) { User.create(username: "test_user_1", password: "sup3r-secret", image_url: "https://via.placeholder.com/150", bio: "bio") }
+    let!(:user1) { User.create(username: "test_user_2", password: "sup3r-secret", img_url: "https://via.placeholder.com/150", bio: "bio") }
+    let!(:user2) { User.create(username: "test_user_1", password: "sup3r-secret", img_url: "https://via.placeholder.com/150", bio: "bio") }
 
     it "returns the first user when the first user is logged in" do
       post "/login", params: { username: user1.username, password: user1.password }
@@ -120,7 +120,7 @@ RSpec.describe "Users", type: :request do
       expect(response.body).to include_json({
         id: user1.id,
         username: user1.username,
-        image_url: user1.image_url,
+        img_url: user1.img_url,
         bio: user1.bio
       })
     end
@@ -132,7 +132,7 @@ RSpec.describe "Users", type: :request do
       expect(response.body).to include_json({
         id: user2.id,
         username: user2.username,
-        image_url: user2.image_url,
+        img_url: user2.img_url,
         bio: user2.bio
       })
     end
