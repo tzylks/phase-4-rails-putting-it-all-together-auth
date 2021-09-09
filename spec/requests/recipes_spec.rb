@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Recipes", type: :request do
-  let!(:user) { User.create(username: "test_user", password: "sup3r-secret", image_url: "https://via.placeholder.com/150", bio: "bio") }
+  let!(:user) { User.create(username: "test_user", password: "sup3r-secret", img_url: "https://via.placeholder.com/150", bio: "bio") }
   
   describe "GET /recipes" do
 
@@ -38,7 +38,7 @@ RSpec.describe "Recipes", type: :request do
             minutes_to_complete: 10,
             user: {
               username: user.username,
-              image_url: user.image_url,
+              img_url: user.img_url,
               bio: user.bio
             }
           },
@@ -49,7 +49,7 @@ RSpec.describe "Recipes", type: :request do
             minutes_to_complete: 10,
             user: {
               username: user.username,
-              image_url: user.image_url,
+              img_url: user.img_url,
               bio: user.bio
             }
           }
@@ -105,7 +105,7 @@ RSpec.describe "Recipes", type: :request do
           minutes_to_complete: 10,
           user: {
             username: user.username,
-            image_url: user.image_url,
+            img_url: user.img_url,
             bio: user.bio
           }
         })
